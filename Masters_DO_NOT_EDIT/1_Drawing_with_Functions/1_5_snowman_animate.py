@@ -3,6 +3,10 @@ import arcade
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 
+# Create a value that our snow_person1_x will start at.
+snow_person1_x = 60
+speed = 100
+
 
 def draw_grass():
     """ Draw the ground """
@@ -27,6 +31,7 @@ def draw_snow_person(x, y):
 
 def on_draw(delta_time):
     global snow_person1_x
+    global speed
 
     """ Draw everything """
     arcade.start_render()
@@ -37,11 +42,20 @@ def on_draw(delta_time):
 
     # Add one to the x value, making the snow person move right
     # Negative numbers move left. Larger numbers move faster.
-    snow_person1_x += 1
+    snow_person1_x += speed  
+
+    #if snow_person1_x > 900:
+    #    snow_person1_x = -100  
+    if snow_person1_x > 740 or snow_person1_x < 60:
+        speed = speed * -1
+    
+    #if snow_person1_x < 60:
+    #    speed = speed * -1
 
 
-# Create a value that our snow_person1_x will start at.
-snow_person1_x = 150
+
+
+
 
 
 def main():
