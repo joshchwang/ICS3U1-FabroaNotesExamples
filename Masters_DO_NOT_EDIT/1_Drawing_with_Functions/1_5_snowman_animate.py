@@ -26,22 +26,24 @@ def draw_snow_person(x, y):
 
 
 def on_draw(delta_time):
-    global snow_person1_x
+    global snow_person1_x, snow_person1_y
 
     """ Draw everything """
     arcade.start_render()
 
     draw_grass()
-    draw_snow_person(snow_person1_x, 140)
+    draw_snow_person(snow_person1_x, snow_person1_y)
     draw_snow_person(450, 180)
 
     # Add one to the x value, making the snow person move right
     # Negative numbers move left. Larger numbers move faster.
     snow_person1_x += 1
+    snow_person1_y += 1
 
 
 # Create a value that our snow_person1_x will start at.
 snow_person1_x = 150
+snow_person1_y = 140
 
 
 def main():
